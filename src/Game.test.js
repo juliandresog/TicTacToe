@@ -1,5 +1,5 @@
 import { render, screen } from '@testing-library/react';
-import Game from './Game';
+import Game from './App';
 
 test('renders game status', () => {
   render(<Game />);
