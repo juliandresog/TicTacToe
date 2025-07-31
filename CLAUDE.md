@@ -6,6 +6,8 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 This is a React-based Tic-Tac-Toe game created with Create React App. The entire game logic is contained in a single component architecture with functional components and React hooks.
 
+React versión v18+
+
 ## Development Commands
 
 ### Core Commands
