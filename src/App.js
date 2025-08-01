@@ -30,7 +30,7 @@ const Game = () => {
   const [isModalOpen, setIsModalOpen] = useState(false); // State for modal visibility
 
   useEffect(() => {
-    fetch('/demo.json')
+    fetch('demo.json')
       .then(response => {
         if (!response.ok) {
           throw new Error('Network response was not ok');
