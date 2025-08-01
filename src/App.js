@@ -1,7 +1,7 @@
-import React, { useState } from 'react';
-import logo from './logo.svg';
+import React, { useState, useEffect } from 'react';
 import './App.css';
 import TicTacToeIcon from './tic-tac-toe.svg';
+import Modal from './Modal'; // Import the Modal component
 
 const Square = ({ value, onClick, isWinner }) => (
   <button className={`square ${isWinner ? 'winner-square' : ''}`} onClick={onClick}>
@@ -26,6 +26,24 @@ const Game = () => {
   const [history, setHistory] = useState([Array(9).fill(null)]);
   const [stepNumber, setStepNumber] = useState(0);
   const [xIsNext, setXIsNext] = useState(true);
+  const [tests, setTests] = useState([]);
+  const [isModalOpen, setIsModalOpen] = useState(false); // State for modal visibility
+
+  useEffect(() => {
+    fetch('/demo.json')
+      .then(response => {
+        if (!response.ok) {
+          throw new Error('Network response was not ok');
+        }
+        return response.json();
+      })
+      .then(data => {
+        setTests(data.data || []);
+      })
+      .catch(error => {
+        console.error('Error fetching data: ', error);
+      });
+  }, []);
 
   const currentSquares = history[stepNumber];
   const { winner, line: winningLine } = calculateWinner(currentSquares);
@@ -65,25 +83,32 @@ const Game = () => {
   }
 
   return (
-    <div className="game-container">
-      <h1 className="game-title">Tic-Tac-Toe</h1>
-      <div className="game">
-        <div className="game-board">
-          <Board
-            squares={currentSquares}
-            onClick={handleClick}
-            winningLine={winningLine}
-          />
+    <>
+      <div className="game-container">
+        <h1 className="game-title">Tic-Tac-Toe</h1>
+        <div className="game">
+          <div className="game-board">
+            <Board
+              squares={currentSquares}
+              onClick={handleClick}
+              winningLine={winningLine}
+            />
+          </div>
+          <div className="game-info">
+            <div className="status">{status}</div>
+            <ol>{moves}</ol>
+          </div>
         </div>
-        <div className="game-info">
-          <div className="status">{status}</div>
-          <ol>{moves}</ol>
+        <div className="game-footer">
+          <img src={TicTacToeIcon} alt="Tic-Tac-Toe Icon" />
+        </div>
+        <div style={{ textAlign: 'center', marginTop: '20px' }}>
+          <button onClick={() => setIsModalOpen(true)}>Open Tests</button>
         </div>
       </div>
-      <div className="game-footer">
-        <img src={TicTacToeIcon} alt="Tic-Tac-Toe Icon" />
-      </div>
-    </div>
+
+      <Modal isOpen={isModalOpen} onClose={() => setIsModalOpen(false)} tests={tests} />
+    </>
   );
 };
 
