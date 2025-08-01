@@ -30,7 +30,7 @@ const Game = () => {
   const [isModalOpen, setIsModalOpen] = useState(false); // State for modal visibility
 
   useEffect(() => {
-    fetch('demo.json')
+    fetch(`${process.env.PUBLIC_URL}/demo.json`)
       .then(response => {
         if (!response.ok) {
           throw new Error('Network response was not ok');
@@ -107,7 +107,7 @@ const Game = () => {
         </div>
       </div>
 
-      <Modal isOpen={isModalOpen} onClose={() => setIsModalOpen(false)} tests={tests} title="Select a Test" />
+      <Modal isOpen={isModalOpen} onClose={() => setIsModalOpen(false)} tests={tests} title="Psicotecnicas" />
     </>
   );
 };

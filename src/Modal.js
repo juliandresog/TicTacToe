@@ -1,7 +1,23 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import './Modal.css';
 
 const Modal = ({ isOpen, onClose, tests, title }) => {
+  const [selectedValue, setSelectedValue] = useState('');
+
+  useEffect(() => {
+    if (tests.length > 0 && !selectedValue) {
+      setSelectedValue(tests[0].id);
+    }
+  }, [tests, selectedValue]);
+
+  const handleSelectChange = (event) => {
+    setSelectedValue(event.target.value);
+  };
+
+  const handleAlertClick = () => {
+    alert(`Valor elegido: ${selectedValue}`);
+  };
+
   if (!isOpen) {
     return null;
   }
@@ -13,7 +29,7 @@ const Modal = ({ isOpen, onClose, tests, title }) => {
           &times;
         </button>
         <h2>{title}</h2>
-        <select>
+        <select value={selectedValue} onChange={handleSelectChange}>
           {tests.length > 0 ? (
             tests.map(test => (
               <option key={test.id} value={test.id}>
@@ -21,9 +37,13 @@ const Modal = ({ isOpen, onClose, tests, title }) => {
               </option>
             ))
           ) : (
-            <option>Loading...</option>
+            <option value="">Loading...</option>
           )}
         </select>
+        {selectedValue && (
+          <p className="selected-value-label">Valor seleccionado: <strong>{selectedValue}</strong></p>
+        )}
+        <button onClick={handleAlertClick}>Mostrar Alerta</button>
       </div>
     </div>
   );
