@@ -1,7 +1,7 @@
 import React from 'react';
 import './Modal.css';
 
-const Modal = ({ isOpen, onClose, tests }) => {
+const Modal = ({ isOpen, onClose, tests, title }) => {
   if (!isOpen) {
     return null;
   }
@@ -12,7 +12,7 @@ const Modal = ({ isOpen, onClose, tests }) => {
         <button className="modal-close" onClick={onClose}>
           &times;
         </button>
-        <h2>Select a Test</h2>
+        <h2>{title}</h2>
         <select>
           {tests.length > 0 ? (
             tests.map(test => (

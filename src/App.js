@@ -107,7 +107,7 @@ const Game = () => {
         </div>
       </div>
 
-      <Modal isOpen={isModalOpen} onClose={() => setIsModalOpen(false)} tests={tests} />
+      <Modal isOpen={isModalOpen} onClose={() => setIsModalOpen(false)} tests={tests} title="Select a Test" />
     </>
   );
 };
