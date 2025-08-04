@@ -1,0 +1,31 @@
+.tab-navigation {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 30px;
+  border-bottom: 2px solid var(--border-color);
+}
+
+.tab-button {
+  background: transparent;
+  border: none;
+  border-bottom: 3px solid transparent;
+  color: var(--secondary-color);
+  font-size: 18px;
+  font-weight: bold;
+  padding: 15px 30px;
+  margin: 0 10px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  border-radius: 5px 5px 0 0;
+}
+
+.tab-button:hover {
+  background-color: rgba(97, 218, 251, 0.1);
+  color: var(--primary-color);
+}
+
+.tab-button.active {
+  color: var(--primary-color);
+  border-bottom-color: var(--primary-color);
+  background-color: rgba(97, 218, 251, 0.1);
+}

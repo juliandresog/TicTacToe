@@ -43,7 +43,7 @@ const Modal = ({ isOpen, onClose, tests, title }) => {
         {selectedValue && (
           <p className="selected-value-label">Valor seleccionado: <strong>{selectedValue}</strong></p>
         )}
-        <button onClick={handleAlertClick}>Mostrar Alerta</button>
+        <button onClick={handleAlertClick}>Consultar</button>
       </div>
     </div>
   );

@@ -18,109 +18,36 @@ body {
   background-color: var(--background-color);
   color: var(--secondary-color);
   margin: 0;
-  display: flex;
-  justify-content: center;
-  align-items: center;
   min-height: 100vh;
 }
 
-.game-container {
+.app-container {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+.app-header {
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin-top: 20px;
+  margin-bottom: 20px;
 }
 
-.game-title {
-  font-size: 48px;
-  margin-bottom: 20px;
+.app-title {
+  font-size: 54px;
+  margin-bottom: 30px;
   color: var(--primary-color);
   text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
-}
-
-.game {
-  display: flex;
-  flex-direction: row;
-  align-items: flex-start;
   text-align: center;
 }
 
-.game-board {
-  margin-right: 20px;
-}
-
-.board {
-  display: grid;
-  grid-template-columns: repeat(3, 100px);
-  grid-template-rows: repeat(3, 100px);
-  gap: 10px;
-}
-
-.square {
-  background: var(--square-bg);
-  border: 2px solid var(--border-color);
-  border-radius: 10px;
-  color: var(--text-color);
-  font-size: 48px;
-  font-weight: bold;
-  cursor: pointer;
-  transition: background-color 0.2s ease-in-out;
+.app-content {
+  flex: 1;
   display: flex;
   justify-content: center;
-  align-items: center;
-  padding: 0;
-  width: 100px;
-  height: 100px;
-}
-
-.square:hover {
-  background-color: var(--square-hover-bg);
-}
-
-.status {
-  margin-bottom: 20px;
-  font-size: 24px;
-  font-weight: bold;
-}
-
-.game-info {
-  margin-left: 20px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-
-.game-info ol {
-  padding-left: 0;
-  list-style: none;
-}
-
-.game-info li button {
-  background-color: var(--primary-color);
-  border: none;
-  border-radius: 5px;
-  color: var(--text-color);
-  padding: 10px 15px;
-  margin: 5px 0;
-  cursor: pointer;
-  font-size: 16px;
-  transition: background-color 0.2s ease-in-out;
-}
-
-.game-info li button:hover {
-  background-color: #4fa8c8;
-}
-
-.winner-square {
-  background-color: var(--winner-color);
-}
-
-.game-footer {
-  margin-top: 30px;
-}
-
-.game-footer img {
-  max-width: 100%;
-  border-radius: 10px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  align-items: flex-start;
 }

@@ -1,0 +1,100 @@
+.tic-tac-toe-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 20px;
+}
+
+.tic-tac-toe-title {
+  font-size: 48px;
+  margin-bottom: 20px;
+  color: var(--primary-color);
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.tic-tac-toe-game {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  text-align: center;
+}
+
+.tic-tac-toe-board {
+  margin-right: 20px;
+}
+
+.board {
+  display: grid;
+  grid-template-columns: repeat(3, 100px);
+  grid-template-rows: repeat(3, 100px);
+  gap: 10px;
+}
+
+.square {
+  background: var(--square-bg);
+  border: 2px solid var(--border-color);
+  border-radius: 10px;
+  color: var(--text-color);
+  font-size: 48px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.2s ease-in-out;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0;
+  width: 100px;
+  height: 100px;
+}
+
+.square:hover {
+  background-color: var(--square-hover-bg);
+}
+
+.status {
+  margin-bottom: 20px;
+  font-size: 24px;
+  font-weight: bold;
+}
+
+.tic-tac-toe-info {
+  margin-left: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.tic-tac-toe-info ol {
+  padding-left: 0;
+  list-style: none;
+}
+
+.tic-tac-toe-info li button {
+  background-color: var(--primary-color);
+  border: none;
+  border-radius: 5px;
+  color: var(--text-color);
+  padding: 10px 15px;
+  margin: 5px 0;
+  cursor: pointer;
+  font-size: 16px;
+  transition: background-color 0.2s ease-in-out;
+}
+
+.tic-tac-toe-info li button:hover {
+  background-color: #4fa8c8;
+}
+
+.winner-square {
+  background-color: var(--winner-color);
+}
+
+.tic-tac-toe-footer {
+  margin-top: 30px;
+}
+
+.tic-tac-toe-footer img {
+  max-width: 100%;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}

@@ -1,0 +1,224 @@
+/* Othello Game Styles */
+.othello-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 20px;
+  padding: 20px;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.othello-title {
+  font-size: 48px;
+  margin-bottom: 20px;
+  color: var(--primary-color);
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.game-controls {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  max-width: 500px;
+  margin-bottom: 20px;
+  padding: 0 20px;
+}
+
+.score-display {
+  display: flex;
+  gap: 30px;
+  align-items: center;
+}
+
+.score-item {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 18px;
+  font-weight: bold;
+  color: var(--secondary-color);
+}
+
+.difficulty-selector {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  color: var(--secondary-color);
+  font-weight: bold;
+}
+
+.difficulty-selector select {
+  background-color: var(--background-color);
+  color: var(--secondary-color);
+  border: 2px solid var(--primary-color);
+  border-radius: 5px;
+  padding: 5px 10px;
+  font-size: 14px;
+}
+
+.difficulty-selector select:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.game-status {
+  font-size: 20px;
+  font-weight: bold;
+  margin-bottom: 20px;
+  min-height: 30px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  color: var(--secondary-color);
+}
+
+.game-status.game-over {
+  color: var(--primary-color);
+  font-size: 24px;
+}
+
+.thinking-indicator {
+  font-size: 24px;
+  animation: pulse 1s infinite;
+}
+
+@keyframes pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.5; }
+}
+
+.othello-board {
+  display: grid;
+  grid-template-columns: repeat(8, 60px);
+  grid-template-rows: repeat(8, 60px);
+  gap: 2px;
+  background-color: var(--primary-color);
+  padding: 10px;
+  border-radius: 10px;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+}
+
+.othello-square {
+  width: 60px;
+  height: 60px;
+  background-color: #2d5a2d;
+  border: none;
+  border-radius: 3px;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  transition: all 0.2s ease;
+}
+
+.othello-square:hover:not(:disabled) {
+  background-color: #3d6a3d;
+  box-shadow: inset 0 0 10px rgba(97, 218, 251, 0.3);
+}
+
+.othello-square:disabled {
+  cursor: default;
+}
+
+.othello-square.valid-move {
+  background-color: #3d6a3d;
+  box-shadow: inset 0 0 10px rgba(97, 218, 251, 0.5);
+}
+
+.piece {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.4);
+  transition: all 0.3s ease;
+  position: relative;
+}
+
+.piece.small {
+  width: 30px;
+  height: 30px;
+}
+
+.black-piece {
+  background: radial-gradient(circle at 30% 30%, #555, #000);
+  border: 2px solid #333;
+}
+
+.white-piece {
+  background: radial-gradient(circle at 30% 30%, #fff, #ddd);
+  border: 2px solid #ccc;
+}
+
+.valid-move-hint {
+  width: 20px;
+  height: 20px;
+  border: 3px solid var(--primary-color);
+  border-radius: 50%;
+  opacity: 0.7;
+  animation: hint-pulse 2s infinite;
+}
+
+@keyframes hint-pulse {
+  0%, 100% { opacity: 0.7; transform: scale(1); }
+  50% { opacity: 1; transform: scale(1.1); }
+}
+
+.game-footer {
+  margin-top: 30px;
+  display: flex;
+  justify-content: center;
+}
+
+.reset-button {
+  background-color: var(--primary-color);
+  color: var(--text-color);
+  border: none;
+  border-radius: 8px;
+  padding: 12px 24px;
+  font-size: 16px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.reset-button:hover {
+  background-color: #4fa8c8;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+}
+
+.reset-button:active {
+  transform: translateY(0);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+  .othello-board {
+    grid-template-columns: repeat(8, 45px);
+    grid-template-rows: repeat(8, 45px);
+  }
+  
+  .othello-square {
+    width: 45px;
+    height: 45px;
+  }
+  
+  .piece {
+    width: 38px;
+    height: 38px;
+  }
+  
+  .game-controls {
+    flex-direction: column;
+    gap: 15px;
+  }
+  
+  .othello-title {
+    font-size: 36px;
+  }
+}
