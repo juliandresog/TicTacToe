@@ -4,7 +4,8 @@ import './TabNavigation.css';
 const TabNavigation = ({ activeTab, onTabChange }) => {
   const tabs = [
     { id: 'tic-tac-toe', label: 'Tic-Tac-Toe' },
-    { id: 'new-game', label: 'Othello' }
+    { id: 'new-game', label: 'Othello' },
+    { id: 'chess', label: 'Ajedrez' }
   ];
 
   return (
